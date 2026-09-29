@@ -1,0 +1,117 @@
+:root {
+  --bg: #f2f5ee;
+  --card: #ffffff;
+  --ink: #1f2a24;
+  --muted: #5d6b63;
+  --accent: #2f6f4f;
+  --heart: #d6336c;
+  --line: #d9e0d4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.header {
+  background: var(--accent);
+  color: #fff;
+  padding: 28px 16px;
+  text-align: center;
+}
+.header h1 { margin: 0 0 4px; }
+.header p { margin: 0; opacity: 0.9; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Kontrol: search, filter, favorit */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.controls input[type="search"] { flex: 2 1 220px; }
+.controls select { flex: 1 1 160px; }
+
+input[type="search"], select {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+}
+:focus-visible { outline: 3px solid #8cc3a6; outline-offset: 2px; }
+
+.fav-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+
+.status { color: var(--muted); min-height: 1.5em; }
+
+/* Daftar resep */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+.card-body { padding: 12px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.card-body h3 { margin: 0; font-size: 1.05rem; }
+.meta { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+.card-actions { display: flex; gap: 8px; margin-top: auto; padding-top: 8px; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  padding: 8px 12px;
+}
+.detail-btn { background: var(--accent); color: #fff; flex: 1; }
+.fav-btn { background: #fff; color: var(--heart); border-color: var(--heart); }
+.fav-btn.active { background: var(--heart); color: #fff; }
+
+/* Detail */
+dialog {
+  width: min(680px, 94vw);
+  max-height: 90vh;
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  overflow-y: auto;
+}
+dialog::backdrop { background: rgba(0, 0, 0, 0.5); }
+
+#detail-content img { width: 100%; max-height: 260px; object-fit: cover; display: block; }
+.detail-text { padding: 16px 20px 8px; }
+.detail-text h2 { margin-top: 0; }
+.detail-text h4 { margin-bottom: 4px; }
+
+.close-btn {
+  margin: 8px 20px 20px;
+  background: #fff;
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recipe Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Recipe Finder</h1>
+    <p>Cari resep, lihat detailnya, dan simpan yang kamu suka.</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <input type="search" id="search-input" placeholder="Cari nama resep, contoh: pizza">
+
+      <select id="meal-filter">
+        <option value="all">Semua jenis makanan</option>
+      </select>
+
+      <label class="fav-toggle">
+        <input type="checkbox" id="fav-only">
+        Favorit saja
+      </label>
+    </section>
+
+    <p id="status" class="status"></p>
+    <section id="recipe-list" class="grid"></section>
+  </main>
+
+  <!-- Detail resep tampil di sini -->
+  <dialog id="detail-dialog">
+    <div id="detail-content"></div>
+    <button id="close-btn" class="close-btn">Tutup</button>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
